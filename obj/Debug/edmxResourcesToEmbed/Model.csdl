@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="t_Client">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeComplet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumarTelefon" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_Factura" Relationship="Self.FK__t_Factura__ID_Cl__3C69FB99" FromRole="t_Client" ToRole="t_Factura" />
+  </EntityType>
+  <EntityType Name="t_Culoare">
+    <Key>
+      <PropertyRef Name="ID_Culoare" />
+    </Key>
+    <Property Name="ID_Culoare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Culoare" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="t_CuloareFloare" Relationship="Self.FK__t_Culoare__ID_Cu__2F10007B" FromRole="t_Culoare" ToRole="t_CuloareFloare" />
+  </EntityType>
+  <EntityType Name="t_CuloareFloare">
+    <Key>
+      <PropertyRef Name="ID_CuloareFloare" />
+    </Key>
+    <Property Name="ID_CuloareFloare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_FloarePlantata" Type="Int32" Nullable="false" />
+    <Property Name="ID_Culoare" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_Culoare" Relationship="Self.FK__t_Culoare__ID_Cu__2F10007B" FromRole="t_CuloareFloare" ToRole="t_Culoare" />
+    <NavigationProperty Name="t_FloarePlantata" Relationship="Self.FK__t_Culoare__ID_Fl__2E1BDC42" FromRole="t_CuloareFloare" ToRole="t_FloarePlantata" />
+  </EntityType>
+  <EntityType Name="t_DetaliiFactura">
+    <Key>
+      <PropertyRef Name="ID_DetaliiFactura" />
+    </Key>
+    <Property Name="ID_DetaliiFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_FloarePlantata" Type="Int32" Nullable="false" />
+    <Property Name="ID_Factura" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_Factura" Relationship="Self.FK__t_Detalii__ID_Fa__403A8C7D" FromRole="t_DetaliiFactura" ToRole="t_Factura" />
+    <NavigationProperty Name="t_FloarePlantata" Relationship="Self.FK__t_Detalii__ID_Fl__3F466844" FromRole="t_DetaliiFactura" ToRole="t_FloarePlantata" />
+  </EntityType>
+  <EntityType Name="t_DetaliiFloare">
+    <Key>
+      <PropertyRef Name="ID_DetaliiFloare" />
+    </Key>
+    <Property Name="ID_DetaliiFloare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumeFloare" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clasificare" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Origine" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Soi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="t_FloarePlantata" Relationship="Self.FK__t_FloareP__ID_De__2B3F6F97" FromRole="t_DetaliiFloare" ToRole="t_FloarePlantata" />
+  </EntityType>
+  <EntityType Name="t_Factura">
+    <Key>
+      <PropertyRef Name="ID_Factura" />
+    </Key>
+    <Property Name="ID_Factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Client" Type="Int32" Nullable="false" />
+    <Property Name="DataFacturare" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="t_Client" Relationship="Self.FK__t_Factura__ID_Cl__3C69FB99" FromRole="t_Factura" ToRole="t_Client" />
+    <NavigationProperty Name="t_DetaliiFactura" Relationship="Self.FK__t_Detalii__ID_Fa__403A8C7D" FromRole="t_Factura" ToRole="t_DetaliiFactura" />
+  </EntityType>
+  <EntityType Name="t_FloarePlantata">
+    <Key>
+      <PropertyRef Name="ID_FloarePlantata" />
+    </Key>
+    <Property Name="ID_FloarePlantata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_DetaliiFloare" Type="Int32" Nullable="false" />
+    <Property Name="Imagine" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="pozX" Type="Int32" Nullable="false" />
+    <Property Name="pozY" Type="Int32" Nullable="false" />
+    <Property Name="NumarParcela" Type="Int32" Nullable="false" />
+    <Property Name="FormaFloare" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Inaltime" Type="Int32" Nullable="false" />
+    <Property Name="Descriere" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Valabila" Type="Boolean" Nullable="false" />
+    <Property Name="DataPlantare" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="t_CuloareFloare" Relationship="Self.FK__t_Culoare__ID_Fl__2E1BDC42" FromRole="t_FloarePlantata" ToRole="t_CuloareFloare" />
+    <NavigationProperty Name="t_DetaliiFactura" Relationship="Self.FK__t_Detalii__ID_Fl__3F466844" FromRole="t_FloarePlantata" ToRole="t_DetaliiFactura" />
+    <NavigationProperty Name="t_DetaliiFloare" Relationship="Self.FK__t_FloareP__ID_De__2B3F6F97" FromRole="t_FloarePlantata" ToRole="t_DetaliiFloare" />
+    <NavigationProperty Name="t_ParfumFloare" Relationship="Self.FK__t_ParfumF__ID_Fl__45F365D3" FromRole="t_FloarePlantata" ToRole="t_ParfumFloare" />
+    <NavigationProperty Name="t_PerioadaInflorire" Relationship="Self.FK__t_Perioad__ID_Fl__33D4B598" FromRole="t_FloarePlantata" ToRole="t_PerioadaInflorire" />
+    <Property Name="PretAchizitie" Type="Double" Nullable="false" />
+    <Property Name="PretVanzare" Type="Double" Nullable="false" />
+    <Property Name="Pierduta" Type="Boolean" Nullable="false" />
+    <Property Name="Hibridizator" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DataPierdere" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="t_Parfum">
+    <Key>
+      <PropertyRef Name="ID_Parfum" />
+    </Key>
+    <Property Name="ID_Parfum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Parfum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="t_ParfumFloare" Relationship="Self.FK__t_ParfumF__ID_Pa__44FF419A" FromRole="t_Parfum" ToRole="t_ParfumFloare" />
+  </EntityType>
+  <EntityType Name="t_ParfumFloare">
+    <Key>
+      <PropertyRef Name="ID_ParfumFloare" />
+    </Key>
+    <Property Name="ID_ParfumFloare" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Parfum" Type="Int32" Nullable="false" />
+    <Property Name="ID_FloarePlantata" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_FloarePlantata" Relationship="Self.FK__t_ParfumF__ID_Fl__45F365D3" FromRole="t_ParfumFloare" ToRole="t_FloarePlantata" />
+    <NavigationProperty Name="t_Parfum" Relationship="Self.FK__t_ParfumF__ID_Pa__44FF419A" FromRole="t_ParfumFloare" ToRole="t_Parfum" />
+  </EntityType>
+  <EntityType Name="t_Perioada">
+    <Key>
+      <PropertyRef Name="ID_Perioada" />
+    </Key>
+    <Property Name="ID_Perioada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Luna" Type="Int32" Nullable="false" />
+    <Property Name="Saptamana" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_PerioadaInflorire" Relationship="Self.FK__t_Perioad__ID_Pe__34C8D9D1" FromRole="t_Perioada" ToRole="t_PerioadaInflorire" />
+  </EntityType>
+  <EntityType Name="t_PerioadaInflorire">
+    <Key>
+      <PropertyRef Name="ID_PerioadaInflorire" />
+    </Key>
+    <Property Name="ID_PerioadaInflorire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_FloarePlantata" Type="Int32" Nullable="false" />
+    <Property Name="ID_Perioada" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="t_FloarePlantata" Relationship="Self.FK__t_Perioad__ID_Fl__33D4B598" FromRole="t_PerioadaInflorire" ToRole="t_FloarePlantata" />
+    <NavigationProperty Name="t_Perioada" Relationship="Self.FK__t_Perioad__ID_Pe__34C8D9D1" FromRole="t_PerioadaInflorire" ToRole="t_Perioada" />
+  </EntityType>
+  <Association Name="FK__t_Factura__ID_Cl__3C69FB99">
+    <End Role="t_Client" Type="Self.t_Client" Multiplicity="1" />
+    <End Role="t_Factura" Type="Self.t_Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Client">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="t_Factura">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Culoare__ID_Cu__2F10007B">
+    <End Role="t_Culoare" Type="Self.t_Culoare" Multiplicity="1" />
+    <End Role="t_CuloareFloare" Type="Self.t_CuloareFloare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Culoare">
+        <PropertyRef Name="ID_Culoare" />
+      </Principal>
+      <Dependent Role="t_CuloareFloare">
+        <PropertyRef Name="ID_Culoare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Culoare__ID_Fl__2E1BDC42">
+    <End Role="t_FloarePlantata" Type="Self.t_FloarePlantata" Multiplicity="1" />
+    <End Role="t_CuloareFloare" Type="Self.t_CuloareFloare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_FloarePlantata">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Principal>
+      <Dependent Role="t_CuloareFloare">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Detalii__ID_Fa__403A8C7D">
+    <End Role="t_Factura" Type="Self.t_Factura" Multiplicity="1" />
+    <End Role="t_DetaliiFactura" Type="Self.t_DetaliiFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Factura">
+        <PropertyRef Name="ID_Factura" />
+      </Principal>
+      <Dependent Role="t_DetaliiFactura">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Detalii__ID_Fl__3F466844">
+    <End Role="t_FloarePlantata" Type="Self.t_FloarePlantata" Multiplicity="1" />
+    <End Role="t_DetaliiFactura" Type="Self.t_DetaliiFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_FloarePlantata">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Principal>
+      <Dependent Role="t_DetaliiFactura">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_FloareP__ID_De__2B3F6F97">
+    <End Role="t_DetaliiFloare" Type="Self.t_DetaliiFloare" Multiplicity="1" />
+    <End Role="t_FloarePlantata" Type="Self.t_FloarePlantata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_DetaliiFloare">
+        <PropertyRef Name="ID_DetaliiFloare" />
+      </Principal>
+      <Dependent Role="t_FloarePlantata">
+        <PropertyRef Name="ID_DetaliiFloare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_ParfumF__ID_Fl__45F365D3">
+    <End Role="t_FloarePlantata" Type="Self.t_FloarePlantata" Multiplicity="1" />
+    <End Role="t_ParfumFloare" Type="Self.t_ParfumFloare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_FloarePlantata">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Principal>
+      <Dependent Role="t_ParfumFloare">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Perioad__ID_Fl__33D4B598">
+    <End Role="t_FloarePlantata" Type="Self.t_FloarePlantata" Multiplicity="1" />
+    <End Role="t_PerioadaInflorire" Type="Self.t_PerioadaInflorire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_FloarePlantata">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Principal>
+      <Dependent Role="t_PerioadaInflorire">
+        <PropertyRef Name="ID_FloarePlantata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_ParfumF__ID_Pa__44FF419A">
+    <End Role="t_Parfum" Type="Self.t_Parfum" Multiplicity="1" />
+    <End Role="t_ParfumFloare" Type="Self.t_ParfumFloare" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Parfum">
+        <PropertyRef Name="ID_Parfum" />
+      </Principal>
+      <Dependent Role="t_ParfumFloare">
+        <PropertyRef Name="ID_Parfum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__t_Perioad__ID_Pe__34C8D9D1">
+    <End Role="t_Perioada" Type="Self.t_Perioada" Multiplicity="1" />
+    <End Role="t_PerioadaInflorire" Type="Self.t_PerioadaInflorire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_Perioada">
+        <PropertyRef Name="ID_Perioada" />
+      </Principal>
+      <Dependent Role="t_PerioadaInflorire">
+        <PropertyRef Name="ID_Perioada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="t_Client" EntityType="Self.t_Client" />
+    <EntitySet Name="t_Culoare" EntityType="Self.t_Culoare" />
+    <EntitySet Name="t_CuloareFloare" EntityType="Self.t_CuloareFloare" />
+    <EntitySet Name="t_DetaliiFactura" EntityType="Self.t_DetaliiFactura" />
+    <EntitySet Name="t_DetaliiFloare" EntityType="Self.t_DetaliiFloare" />
+    <EntitySet Name="t_Factura" EntityType="Self.t_Factura" />
+    <EntitySet Name="t_FloarePlantata" EntityType="Self.t_FloarePlantata" />
+    <EntitySet Name="t_Parfum" EntityType="Self.t_Parfum" />
+    <EntitySet Name="t_ParfumFloare" EntityType="Self.t_ParfumFloare" />
+    <EntitySet Name="t_Perioada" EntityType="Self.t_Perioada" />
+    <EntitySet Name="t_PerioadaInflorire" EntityType="Self.t_PerioadaInflorire" />
+    <AssociationSet Name="FK__t_Factura__ID_Cl__3C69FB99" Association="Self.FK__t_Factura__ID_Cl__3C69FB99">
+      <End Role="t_Client" EntitySet="t_Client" />
+      <End Role="t_Factura" EntitySet="t_Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Culoare__ID_Cu__2F10007B" Association="Self.FK__t_Culoare__ID_Cu__2F10007B">
+      <End Role="t_Culoare" EntitySet="t_Culoare" />
+      <End Role="t_CuloareFloare" EntitySet="t_CuloareFloare" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Culoare__ID_Fl__2E1BDC42" Association="Self.FK__t_Culoare__ID_Fl__2E1BDC42">
+      <End Role="t_FloarePlantata" EntitySet="t_FloarePlantata" />
+      <End Role="t_CuloareFloare" EntitySet="t_CuloareFloare" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Detalii__ID_Fa__403A8C7D" Association="Self.FK__t_Detalii__ID_Fa__403A8C7D">
+      <End Role="t_Factura" EntitySet="t_Factura" />
+      <End Role="t_DetaliiFactura" EntitySet="t_DetaliiFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Detalii__ID_Fl__3F466844" Association="Self.FK__t_Detalii__ID_Fl__3F466844">
+      <End Role="t_FloarePlantata" EntitySet="t_FloarePlantata" />
+      <End Role="t_DetaliiFactura" EntitySet="t_DetaliiFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_FloareP__ID_De__2B3F6F97" Association="Self.FK__t_FloareP__ID_De__2B3F6F97">
+      <End Role="t_DetaliiFloare" EntitySet="t_DetaliiFloare" />
+      <End Role="t_FloarePlantata" EntitySet="t_FloarePlantata" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_ParfumF__ID_Fl__45F365D3" Association="Self.FK__t_ParfumF__ID_Fl__45F365D3">
+      <End Role="t_FloarePlantata" EntitySet="t_FloarePlantata" />
+      <End Role="t_ParfumFloare" EntitySet="t_ParfumFloare" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Perioad__ID_Fl__33D4B598" Association="Self.FK__t_Perioad__ID_Fl__33D4B598">
+      <End Role="t_FloarePlantata" EntitySet="t_FloarePlantata" />
+      <End Role="t_PerioadaInflorire" EntitySet="t_PerioadaInflorire" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_ParfumF__ID_Pa__44FF419A" Association="Self.FK__t_ParfumF__ID_Pa__44FF419A">
+      <End Role="t_Parfum" EntitySet="t_Parfum" />
+      <End Role="t_ParfumFloare" EntitySet="t_ParfumFloare" />
+    </AssociationSet>
+    <AssociationSet Name="FK__t_Perioad__ID_Pe__34C8D9D1" Association="Self.FK__t_Perioad__ID_Pe__34C8D9D1">
+      <End Role="t_Perioada" EntitySet="t_Perioada" />
+      <End Role="t_PerioadaInflorire" EntitySet="t_PerioadaInflorire" />
+    </AssociationSet>
+    <EntitySet Name="t_Parcela" EntityType="dbModel.t_Parcela" />
+  </EntityContainer>
+  <EntityType Name="t_Parcela">
+    <Key>
+      <PropertyRef Name="ID_Parcela" />
+    </Key>
+    <Property Name="ID_Parcela" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumarParcela" Type="Int32" Nullable="false" />
+    <Property Name="NumarLinii" Type="Int32" Nullable="false" />
+    <Property Name="NumarColoane" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

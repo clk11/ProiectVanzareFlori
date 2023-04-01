@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbModelStoreContainer" CdmEntityContainer="dbEntities">
+    <EntitySetMapping Name="t_Client">
+      <EntityTypeMapping TypeName="dbModel.t_Client">
+        <MappingFragment StoreEntitySet="t_Client">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="NumeComplet" ColumnName="NumeComplet" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumarTelefon" ColumnName="NumarTelefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Culoare">
+      <EntityTypeMapping TypeName="dbModel.t_Culoare">
+        <MappingFragment StoreEntitySet="t_Culoare">
+          <ScalarProperty Name="ID_Culoare" ColumnName="ID_Culoare" />
+          <ScalarProperty Name="Culoare" ColumnName="Culoare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_CuloareFloare">
+      <EntityTypeMapping TypeName="dbModel.t_CuloareFloare">
+        <MappingFragment StoreEntitySet="t_CuloareFloare">
+          <ScalarProperty Name="ID_CuloareFloare" ColumnName="ID_CuloareFloare" />
+          <ScalarProperty Name="ID_FloarePlantata" ColumnName="ID_FloarePlantata" />
+          <ScalarProperty Name="ID_Culoare" ColumnName="ID_Culoare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_DetaliiFactura">
+      <EntityTypeMapping TypeName="dbModel.t_DetaliiFactura">
+        <MappingFragment StoreEntitySet="t_DetaliiFactura">
+          <ScalarProperty Name="ID_DetaliiFactura" ColumnName="ID_DetaliiFactura" />
+          <ScalarProperty Name="ID_FloarePlantata" ColumnName="ID_FloarePlantata" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_DetaliiFloare">
+      <EntityTypeMapping TypeName="dbModel.t_DetaliiFloare">
+        <MappingFragment StoreEntitySet="t_DetaliiFloare">
+          <ScalarProperty Name="ID_DetaliiFloare" ColumnName="ID_DetaliiFloare" />
+          <ScalarProperty Name="NumeFloare" ColumnName="NumeFloare" />
+          <ScalarProperty Name="Clasificare" ColumnName="Clasificare" />
+          <ScalarProperty Name="Origine" ColumnName="Origine" />
+          <ScalarProperty Name="Soi" ColumnName="Soi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Factura">
+      <EntityTypeMapping TypeName="dbModel.t_Factura">
+        <MappingFragment StoreEntitySet="t_Factura">
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="DataFacturare" ColumnName="DataFacturare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_FloarePlantata">
+      <EntityTypeMapping TypeName="dbModel.t_FloarePlantata">
+        <MappingFragment StoreEntitySet="t_FloarePlantata">
+          <ScalarProperty Name="DataPierdere" ColumnName="DataPierdere" />
+          <ScalarProperty Name="Hibridizator" ColumnName="Hibridizator" />
+          <ScalarProperty Name="Pierduta" ColumnName="Pierduta" />
+          <ScalarProperty Name="PretVanzare" ColumnName="PretVanzare" />
+          <ScalarProperty Name="PretAchizitie" ColumnName="PretAchizitie" />
+          <ScalarProperty Name="ID_FloarePlantata" ColumnName="ID_FloarePlantata" />
+          <ScalarProperty Name="ID_DetaliiFloare" ColumnName="ID_DetaliiFloare" />
+          <ScalarProperty Name="Imagine" ColumnName="Imagine" />
+          <ScalarProperty Name="pozX" ColumnName="pozX" />
+          <ScalarProperty Name="pozY" ColumnName="pozY" />
+          <ScalarProperty Name="NumarParcela" ColumnName="NumarParcela" />
+          <ScalarProperty Name="FormaFloare" ColumnName="FormaFloare" />
+          <ScalarProperty Name="Inaltime" ColumnName="Inaltime" />
+          <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+          <ScalarProperty Name="Valabila" ColumnName="Valabila" />
+          <ScalarProperty Name="DataPlantare" ColumnName="DataPlantare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Parfum">
+      <EntityTypeMapping TypeName="dbModel.t_Parfum">
+        <MappingFragment StoreEntitySet="t_Parfum">
+          <ScalarProperty Name="ID_Parfum" ColumnName="ID_Parfum" />
+          <ScalarProperty Name="Parfum" ColumnName="Parfum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_ParfumFloare">
+      <EntityTypeMapping TypeName="dbModel.t_ParfumFloare">
+        <MappingFragment StoreEntitySet="t_ParfumFloare">
+          <ScalarProperty Name="ID_ParfumFloare" ColumnName="ID_ParfumFloare" />
+          <ScalarProperty Name="ID_Parfum" ColumnName="ID_Parfum" />
+          <ScalarProperty Name="ID_FloarePlantata" ColumnName="ID_FloarePlantata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Perioada">
+      <EntityTypeMapping TypeName="dbModel.t_Perioada">
+        <MappingFragment StoreEntitySet="t_Perioada">
+          <ScalarProperty Name="ID_Perioada" ColumnName="ID_Perioada" />
+          <ScalarProperty Name="Luna" ColumnName="Luna" />
+          <ScalarProperty Name="Saptamana" ColumnName="Saptamana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_PerioadaInflorire">
+      <EntityTypeMapping TypeName="dbModel.t_PerioadaInflorire">
+        <MappingFragment StoreEntitySet="t_PerioadaInflorire">
+          <ScalarProperty Name="ID_PerioadaInflorire" ColumnName="ID_PerioadaInflorire" />
+          <ScalarProperty Name="ID_FloarePlantata" ColumnName="ID_FloarePlantata" />
+          <ScalarProperty Name="ID_Perioada" ColumnName="ID_Perioada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Parcela">
+      <EntityTypeMapping TypeName="dbModel.t_Parcela">
+        <MappingFragment StoreEntitySet="t_Parcela">
+          <ScalarProperty Name="NumarColoane" ColumnName="NumarColoane" />
+          <ScalarProperty Name="NumarLinii" ColumnName="NumarLinii" />
+          <ScalarProperty Name="NumarParcela" ColumnName="NumarParcela" />
+          <ScalarProperty Name="ID_Parcela" ColumnName="ID_Parcela" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

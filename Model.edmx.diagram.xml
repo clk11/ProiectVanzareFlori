@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db1a3e717b6846c4a3bd20e35e71848c" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="dbModel.t_Client" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_Culoare" Width="1.5" PointX="9.125" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_CuloareFloare" Width="1.5" PointX="4.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_DetaliiFactura" Width="1.5" PointX="4.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_DetaliiFloare" Width="1.5" PointX="0.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_Factura" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_FloarePlantata" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_Parfum" Width="1.5" PointX="9.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_ParfumFloare" Width="1.5" PointX="3.625" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_Perioada" Width="1.5" PointX="8.875" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbModel.t_PerioadaInflorire" Width="2.25" PointX="4.25" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="dbModel.FK__t_Factura__ID_Cl__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Culoare__ID_Cu__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Culoare__ID_Fl__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Detalii__ID_Fa__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Detalii__ID_Fl__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_FloareP__ID_De__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_ParfumF__ID_Fl__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Perioad__ID_Fl__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_ParfumF__ID_Pa__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="dbModel.FK__t_Perioad__ID_Pe__34C8D9D1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbModel.t_Parcela" Width="1.5" PointX="0.5" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
